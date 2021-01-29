@@ -15,7 +15,7 @@ FixedReplayOffPolicyDQNAgent.target_update_period = 8000  # agent steps
 FixedReplayOffPolicyDQNAgent.epsilon_train = 0.01
 FixedReplayOffPolicyDQNAgent.epsilon_eval = 0.001
 FixedReplayOffPolicyDQNAgent.epsilon_decay_period = 250000  # agent steps
-FixedReplayOffPolicyDQNAgent.tf_device = '/gpu:0'
+FixedReplayOffPolicyDQNAgent.tf_device = '/gpu:2'
 # FixedReplayOffPolicyDQNAgent.tf_device = '/cpu:*'
 FixedReplayOffPolicyDQNAgent.optimizer = @tf.train.RMSPropOptimizer()
 

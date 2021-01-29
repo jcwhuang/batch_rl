@@ -15,7 +15,7 @@ FixedReplayDQNAgent.target_update_period = 8000  # agent steps
 FixedReplayDQNAgent.epsilon_train = 0.01
 FixedReplayDQNAgent.epsilon_eval = 0.001
 FixedReplayDQNAgent.epsilon_decay_period = 250000  # agent steps
-FixedReplayDQNAgent.tf_device = '/gpu:0'
+FixedReplayDQNAgent.tf_device = '/gpu:2'
 # FixedReplayDQNAgent.tf_device = '/cpu:*'
 FixedReplayDQNAgent.optimizer = @tf.train.RMSPropOptimizer()
 
