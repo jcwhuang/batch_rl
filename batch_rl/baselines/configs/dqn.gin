@@ -15,19 +15,22 @@ LoggedDQNAgent.target_update_period = 8000  # agent steps
 LoggedDQNAgent.epsilon_train = 0.01
 LoggedDQNAgent.epsilon_eval = 0.001
 LoggedDQNAgent.epsilon_decay_period = 250000  # agent steps
-LoggedDQNAgent.tf_device = '/gpu:0'  # use '/cpu:*' for non-GPU version
-LoggedDQNAgent.optimizer = @tf.train.RMSPropOptimizer()
+LoggedDQNAgent.tf_device = '/gpu:2'  # use '/cpu:*' for non-GPU version
+# LoggedDQNAgent.optimizer = @tf.train.RMSPropOptimizer()
+LoggedDQNAgent.optimizer = @tf.train.AdamOptimizer()
 
-tf.train.RMSPropOptimizer.learning_rate = 0.00025
-tf.train.RMSPropOptimizer.decay = 0.95
-tf.train.RMSPropOptimizer.momentum = 0.0
-tf.train.RMSPropOptimizer.epsilon = 0.00001
-tf.train.RMSPropOptimizer.centered = True
+# tf.train.RMSPropOptimizer.learning_rate = 0.00025
+# tf.train.RMSPropOptimizer.decay = 0.95
+# tf.train.RMSPropOptimizer.momentum = 0.0
+# tf.train.RMSPropOptimizer.epsilon = 0.00001
+# tf.train.RMSPropOptimizer.centered = True
+tf.train.AdamOptimizer.learning_rate = 0.00005
+tf.train.AdamOptimizer.epsilon = 0.0003125
 
-atari_lib.create_atari_environment.game_name = 'Pong'
+atari_lib.create_atari_environment.game_name = 'Breakout'
 # Sticky actions with probability 0.25, as suggested by (Machado et al., 2017).
 atari_lib.create_atari_environment.sticky_actions = True
-Runner.num_iterations = 200
+Runner.num_iterations = 40 
 Runner.training_steps = 250000  # agent steps
 Runner.evaluation_steps = 125000  # agent steps
 Runner.max_steps_per_episode = 27000  # agent steps
