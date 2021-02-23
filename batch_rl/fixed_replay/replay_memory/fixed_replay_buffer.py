@@ -111,8 +111,13 @@ class FixedReplayBuffer(object):
       if num_buffers is not None:
         if self._inorder:
           minindex = self._loadcount % len(ckpt_suffixes)
-          maxindex = (self._loadcount + num_buffers) % len(ckpt_suffixes)
-          ckpt_suffixes = list(sorted(ckpt_suffixes, key=int))[minindex:maxindex]
+          maxindex = self._loadcount + num_buffers
+          ckpt_suffixes = np.take(ckpt_suffixes, range(minindex, maxindex), mode='wrap')
+          assert len(ckpt_suffixes) == num_buffers
+
+          # below will error out when minindex > maxindex
+          # maxindex = (self._loadcount + num_buffers) % len(ckpt_suffixes)
+          # ckpt_suffixes = list(sorted(ckpt_suffixes, key=int))[minindex:maxindex]
           self._loadcount += 1
         else:
           ckpt_suffixes = np.random.choice(
