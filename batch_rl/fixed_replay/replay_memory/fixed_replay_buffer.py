@@ -112,7 +112,7 @@ class FixedReplayBuffer(object):
         if self._inorder:
           minindex = self._loadcount % len(ckpt_suffixes)
           maxindex = self._loadcount + num_buffers
-          ckpt_suffixes = np.take(ckpt_suffixes, range(minindex, maxindex), mode='wrap')
+          ckpt_suffixes = np.take(list(sorted(ckpt_suffixes, key=int)), range(minindex, maxindex), mode='wrap')
           assert len(ckpt_suffixes) == num_buffers
 
           # below will error out when minindex > maxindex
