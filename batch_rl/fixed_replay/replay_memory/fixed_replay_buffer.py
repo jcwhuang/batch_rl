@@ -110,7 +110,7 @@ class FixedReplayBuffer(object):
           ckpt_suffixes = [v for v in ckpt_suffixes if int(v) < self._maxbuffernum]
       if num_buffers is not None:
         if self._inorder:
-          minindex = self._loadcount % len(ckpt_suffixes)
+          minindex = self._loadcount 
           maxindex = self._loadcount + num_buffers
           ckpt_suffixes = np.take(list(sorted(ckpt_suffixes, key=int)), range(minindex, maxindex), mode='wrap')
           assert len(ckpt_suffixes) == num_buffers
