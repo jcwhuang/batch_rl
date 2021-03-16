@@ -35,6 +35,7 @@ from batch_rl.fixed_replay.agents import multi_head_dqn_agent
 from batch_rl.fixed_replay.agents import off_policy_dqn_agent
 from batch_rl.fixed_replay.agents import quantile_agent
 from batch_rl.fixed_replay.agents import rainbow_agent
+from batch_rl.fixed_replay.agents import fixed_replay_rff_dqn_agent
 
 from dopamine.discrete_domains import run_experiment as base_run_experiment
 import tensorflow.compat.v1 as tf
@@ -73,6 +74,8 @@ def create_agent(sess, environment, replay_data_dir, summary_writer=None):
     agent = multi_head_dqn_agent.FixedReplayMultiHeadDQNAgent
   elif FLAGS.agent_name == 'off_policy_dqn':
     agent = off_policy_dqn_agent.FixedReplayOffPolicyDQNAgent
+  elif FLAGS.agent_name == 'rff_dqn':
+    agent = fixed_replay_rff_dqn_agent.FixedReplayRandomFourierFeaturesDQNAgent
   else:
     raise ValueError('{} is not a valid agent name'.format(FLAGS.agent_name))
 
