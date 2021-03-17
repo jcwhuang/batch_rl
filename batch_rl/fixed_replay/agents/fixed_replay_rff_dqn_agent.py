@@ -49,7 +49,7 @@ class FixedReplayRandomFourierFeaturesDQNAgent(rff_dqn_agent.RFFDQNAgent):
     """
     assert replay_data_dir is not None
     tf.logging.info(
-        'Creating RandomFourierFeaturesDQNAgent with replay directory: %s', replay_data_dir)
+        'Creating FixedReplayRandomFourierFeaturesDQNAgent with replay directory: %s', replay_data_dir)
     tf.logging.info('\t init_checkpoint_dir %s', init_checkpoint_dir)
     tf.logging.info('\t replay_suffix %s', replay_suffix)
     # Set replay_log_dir before calling parent's initializer
