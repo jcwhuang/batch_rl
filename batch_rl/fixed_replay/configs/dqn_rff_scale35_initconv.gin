@@ -18,7 +18,6 @@ FixedReplayRandomFourierFeaturesDQNAgent.epsilon_decay_period = 250000  # agent 
 FixedReplayRandomFourierFeaturesDQNAgent.tf_device = '/gpu:1'
 FixedReplayRandomFourierFeaturesDQNAgent.scale = 3.5
 FixedReplayRandomFourierFeaturesDQNAgent.trainable = False
-FixedReplayRandomFourierFeaturesDQNAgent.init_conv_checkpoint_path = "/tmp/breakout/offline_dqn_it5/checkpoints/tf_ckpt-4"
 # FixedReplayRandomFourierFeaturesDQNAgent.tf_device = '/cpu:*'
 # FixedReplayRandomFourierFeaturesDQNAgent.optimizer = @tf.train.RMSPropOptimizer()
 FixedReplayRandomFourierFeaturesDQNAgent.optimizer = @tf.train.AdamOptimizer()

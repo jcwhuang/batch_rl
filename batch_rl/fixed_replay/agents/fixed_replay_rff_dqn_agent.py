@@ -60,7 +60,7 @@ class FixedReplayRandomFourierFeaturesDQNAgent(rff_dqn_agent.RFFDQNAgent):
           init_checkpoint_dir, 'checkpoints')
     else:
       self._init_checkpoint_dir = None
-    super(FixedReplayRandomFourierFeaturesDQNAgent, self).__init__(sess, num_actions, **kwargs)
+    super(FixedReplayRandomFourierFeaturesDQNAgent, self).__init__(sess, num_actions, init_checkpoint_dir=self._init_checkpoint_dir, **kwargs)
 
   def step(self, reward, observation):
     """Records the most recent transition and returns the agent's next action.
